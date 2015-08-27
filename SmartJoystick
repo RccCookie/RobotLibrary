@@ -12,8 +12,7 @@ import edu.wpi.first.wpilibj.JoystickButton;
 public class SmartJoystick extends Joystick implements RobotMap {
   private double deadzone; // Requires the joystick to have passed a threshold to register
   private double sensitivity; // Multiplier of the joystick output to change the robot's reaction
-  private Button trigger;
-  // TODO Buttons
+  // TODO: Buttons
   
 	/**
 	 * Constructor for SmartJoystick
