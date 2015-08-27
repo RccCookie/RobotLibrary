@@ -1,0 +1,61 @@
+package library;
+
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.JoystickButton;
+
+/**
+ * SmartJoystick implements calculations to inputs, to improve the driving experience, and adds extra functionality to the
+ * joystick to ehance the capabilities of the driver.
+ *
+ * @author Ryan Cook
+ */
+public class SmartJoystick extends Joystick implements RobotMap {
+  private double deadzone; // Requires the joystick to have passed a threshold to register
+  private double sensitivity; // Multiplier of the joystick output to change the robot's reaction
+  private Button trigger;
+  // TODO Buttons
+  
+	/**
+	 * Constructor for SmartJoystick
+	 * -Sets the port of the superclass to that of the subclass.
+	 * @param port
+	 */
+	public SmartJoystick(int port) {
+		super(port);
+		this.deadzone = RobotMap.JOYSTICK_DEADZONE;
+		this.sensitivity = RobotMap.JOYSTICK_SENSITIVITY;
+	}
+	
+	/**
+	 * Gets the value of the x-axis, and raises it to the 3rd degree
+	 * @return Cubed x-axis value
+	 */
+	public double getSmartX() {
+	  if(Math.abs(super.getX) > deadzone) {
+	    return (Math.pow(super.getX, 3) * sensitivity);
+	  }else{
+	    return 0.0;
+	}
+	
+	/**
+	 * Gets the value of the y-axis, and raises it to the 3rd degree
+	 * @return Cubed y-axis value
+	 */
+	public double getSmartY() {
+	  if(Math.abs(super.getSmartY) > deadzone) {
+	    return (Math.pow(super.getY, 3) * sensitivity);
+	  }else{
+	    return 0.0;
+	}
+	
+	/**
+	 * Gets the value of the z-axis, and raises it to the 3rd degree
+	 * @return Cubed z-axis value
+	 */
+	public double getSmartZ() {
+	  if(Math.abs(super.getSmartY) > deadzone) {
+	    return (Math.pow(super.getZ, 3) * sensitivity);
+	  }else{
+	    return 0.0;
+	}
+}
